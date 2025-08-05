@@ -207,7 +207,7 @@ gl_FragColor = vec4(0.0, 0.0, 0.5, .1);
 				texture.generateMipmaps = false;
 
 				const width = 1200, height = 800;
-				const nearClipping = 1200, farClipping = 9000;
+				const nearClipping = 1, farClipping = 8250;
 
 				geometry = new THREE.BufferGeometry();
 
@@ -233,7 +233,7 @@ gl_FragColor = vec4(0.0, 0.0, 0.5, .1);
 						'farClipping': { value: farClipping },
 
 						'pointSize': { value: 4 },
-						'zOffset': { value: 750 }
+						'zOffset': { value: 2500 }
 
 					},
 					vertexShader: document.getElementById( 'vs' ).textContent,

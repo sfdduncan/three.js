@@ -152,20 +152,11 @@
 
 		</script>
 
-		<script id="fs" type="x-shader/x-fragment">
-
-			uniform sampler2D map;
-
-			varying vec2 vUv;
-
-			void main() {
-
-				vec4 color = texture2D( map, vUv );
-				gl_FragColor = vec4( color.r, color.g, color.b, 0.2 );
-
-			}
-
-		</script>
+<script id="fs" type="x-shader/x-fragment">
+  void main() {
+gl_FragColor = vec4(0.0, 0.0, 0.5, .1);
+  }
+</script>
 
 		<script type="importmap">
 			{
@@ -215,7 +206,7 @@
 				texture.generateMipmaps = false;
 
 				const width = 1200, height = 800;
-				const nearClipping = 1000, farClipping = 6000;
+				const nearClipping = 1200, farClipping = 9000;
 
 				geometry = new THREE.BufferGeometry();
 
@@ -269,7 +260,7 @@
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
-                renderer.setClearColor(0x00008B); // Blue background
+                renderer.setClearColor('#060606'); // Blue background
 				renderer.setAnimationLoop( animate );
 				container.appendChild( renderer.domElement );
 

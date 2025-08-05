@@ -44,10 +44,9 @@
     uniform sampler2D map;
     varying vec2 vUv;
 
-    void main() {
-      vec4 color = texture2D(map, vUv);
-      gl_FragColor = vec4(color.r, color.g, color.b, 0.2);
-    }
+void main() {
+    gl_FragColor = vec4(1.0, 1.0, 1.0, 0.4); // solid white with slight transparency
+  }
   </script>
 
   <script type="importmap">
@@ -96,7 +95,7 @@
       texture.generateMipmaps = false;
 
       const width = 640, height = 480;
-      const nearClipping = 850, farClipping = 4000;
+      const nearClipping = 800, farClipping = 7500;
 
       geometry = new THREE.BufferGeometry();
       const vertices = new Float32Array(width * height * 3);
@@ -117,7 +116,7 @@
           'nearClipping': { value: nearClipping },
           'farClipping': { value: farClipping },
           'pointSize': { value: 2 },
-          'zOffset': { value: 1000 }
+          'zOffset': { value: 1800 }
         },
         vertexShader: document.getElementById('vs').textContent,
         fragmentShader: document.getElementById('fs').textContent,
@@ -131,6 +130,7 @@
       scene.add(mesh);
 
       const gui = new GUI();
+      gui.close();
       gui.add(material.uniforms.nearClipping, 'value', 1, 10000).name('nearClipping');
       gui.add(material.uniforms.farClipping, 'value', 1, 10000).name('farClipping');
       gui.add(material.uniforms.pointSize, 'value', 1, 10).name('pointSize');

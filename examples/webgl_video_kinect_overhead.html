@@ -50,6 +50,10 @@
   box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #000000;
   text-align: center;
   text-shadow: 1px 1px #fff;
+  align-items: center;	
+    height: 26px;               /* match your --widget-height */
+  line-height: 1.2;           /* adjust if needed */
+  padding: 6px 8px;             /* remove vertical padding */
 }
 
 /* Button-style enhancements for classic look */
@@ -73,6 +77,29 @@
   box-shadow: inset 1px 1px 1px #ccc;
   padding: 0 4px;
 }
+
+
+.lil-gui .widget {
+  display: flex;
+  align-items: center;
+  height: var(--widget-height, 26px); /* fallback if not set */
+  padding: 0 var(--padding, 6px);
+  box-sizing: border-box;
+}
+
+.lil-gui .name {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.lil-gui button,
+.lil-gui input,
+.lil-gui select {
+  vertical-align: middle;
+  line-height: normal;
+}
+
 
 
 </style>
@@ -188,7 +215,7 @@
 				texture.generateMipmaps = false;
 
 				const width = 1200, height = 800;
-				const nearClipping = 850, farClipping = 7000;
+				const nearClipping = 1000, farClipping = 6000;
 
 				geometry = new THREE.BufferGeometry();
 
@@ -213,8 +240,8 @@
 						'nearClipping': { value: nearClipping },
 						'farClipping': { value: farClipping },
 
-						'pointSize': { value: 3 },
-						'zOffset': { value: 1200 }
+						'pointSize': { value: 4 },
+						'zOffset': { value: 750 }
 
 					},
 					vertexShader: document.getElementById( 'vs' ).textContent,

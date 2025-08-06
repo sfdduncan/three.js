@@ -109,7 +109,7 @@
 
 		<video id="video" loop muted crossOrigin="anonymous" playsinline style="display:none">
 			
-			<source src="textures/walking_video_city.mp4">
+			<source src="textures/Philly.mp4">
 		</video>
 
 		<script id="vs" type="x-shader/x-vertex">
@@ -154,7 +154,7 @@
 
 <script id="fs" type="x-shader/x-fragment">
   void main() {
-gl_FragColor = vec4(0.0, 0.0, 0.5, .1);
+gl_FragColor = vec4(0, 0, .15, .15);
   }
 </script>
 
@@ -207,7 +207,7 @@ gl_FragColor = vec4(0.0, 0.0, 0.5, .1);
 				texture.generateMipmaps = false;
 
 				const width = 1200, height = 800;
-				const nearClipping = 1, farClipping = 8250;
+				const nearClipping = 1, farClipping = 5500;
 
 				geometry = new THREE.BufferGeometry();
 
@@ -233,7 +233,7 @@ gl_FragColor = vec4(0.0, 0.0, 0.5, .1);
 						'farClipping': { value: farClipping },
 
 						'pointSize': { value: 4 },
-						'zOffset': { value: 2500 }
+						'zOffset': { value: 1500 }
 
 					},
 					vertexShader: document.getElementById( 'vs' ).textContent,
